@@ -1,0 +1,799 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Title</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@300&display=swap');
+
+    body {
+      background: #0C0C0C;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      font-family: 'Cormorant Upright', serif;
+    }
+
+    .logo {
+      height: 50px;
+      width: auto;
+    }
+
+    .title {
+      font-size: 25px;
+      font-family: 'Cormorant Upright', serif;
+    }
+
+    .dropdown-menu {
+      min-width: 2rem;
+    }
+
+    .bottom-nav {
+      padding-top: 100px;
+      transition: all 0.5s ease-out;
+    }
+
+    .bottom-nav.show {
+      display: none;
+    }
+
+    .follow {
+      position: fixed;
+      top: 170px;
+      color: aliceblue;
+    }
+
+    .social {
+      position: fixed;
+      top: 200px;
+      left: -120px;
+      transition: all .5s linear;
+    }
+
+    .social.active {
+      left: 0;
+      transition: all .5s linear;
+    }
+
+    #menu-social {
+      min-width: 20px;
+    }
+
+    .carousel-caption {
+      top: 25%;
+    }
+
+    .space {
+      height: 150px;
+    }
+
+    .dining-img img {
+      width: 100%;
+      margin: auto;
+      border: 5px solid #f1f4f9;
+    }
+
+    .dining-img {
+      position: relative;
+    }
+
+    .dining-img .first {
+      width: 45%;
+    }
+
+    .dining-img .midle {
+      position: absolute;
+      width: 40%;
+      left: 0;
+      top: 20%;
+      z-index: -1;
+    }
+
+    .dining-img .last {
+      position: absolute;
+      width: 40%;
+      left: 60%;
+      top: 20%;
+      z-index: -1;
+    }
+
+    /******************************************************/
+
+    .bg-custom {
+      background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.1));
+    }
+
+    .bg-custom-1 {
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url("static/img/milestone-1.jpg") center/cover no-repeat fixed;
+    }
+
+    .slide1 {
+      background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4)), url("static/img/fachada-1280x720.jpg") center/cover no-repeat;
+      height: 100vh;
+    }
+
+    .slide2 {
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2)), url("static/img/loby-1280x720.jpg") center/cover no-repeat;
+      height: 100vh;
+    }
+
+    .slide3 {
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2)), url("static/img/patio-1280x720.jpg") center/cover no-repeat;
+      height: 100vh;
+    }
+
+    .text-shadow {
+      text-shadow: 2px 2px 4px black;
+    }
+
+    .custom-nav {
+      transition: all 0.5s ease-out;
+    }
+
+    .custom-nav.show {
+      background-color: #853029;
+    }
+
+    .bg-extras {
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2)), url("static/img/milestone-2.jpg") center/cover no-repeat fixed;
+    }
+
+    .masonry {
+      max-width: 100%;
+      margin-bottom: 0.5em;
+      display: block;
+      outline: 2px solid #fff;
+      outline-offset: -10px;
+    }
+
+    .gallery {
+      columns: 5 220px;
+      column-gap: 0.5em;
+    }
+
+    /******************************************************/
+
+    .carousel-control-left,
+    .carousel-control-right {
+      width: 100%;
+    }
+
+    .smaller {
+      font-size: .6rem;
+    }
+
+    @media (max-width:576px) {
+      .logo {
+        width: 35px;
+      }
+
+      .title {
+        font-size: 25px;
+      }
+    }
+  </style>
+</head>
+
+<body class="">
+  <header>
+    <!-- place navbar here    text-reset -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-custom custom-nav fixed-top" aria-label="Offcanvas navbar large">
+      <div class="container-fluid">
+        <img src="static/img/logo-1.png" class="logo" alt="">
+        <a class="navbar-brand ps-2 title" href="#">HOTEL OTOCH</a>
+        <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar2"
+          aria-controls="offcanvasNavbar2" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-end text-bg-dark bg-black" tabindex="-1" id="offcanvasNavbar2"
+          aria-labelledby="offcanvasNavbar2Label">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNavbar2Label">HOTEL OTOCH</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+              aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-center flex-grow-1">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Habitaciones</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Turismo</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Galería</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Contacto</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  Lang
+                </a>
+                <ul class="dropdown-menu rounded-0">
+                  <li><a class="dropdown-item" href="#">En</a></li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li><a class="dropdown-item" href="#">Fr</a></li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li><a class="dropdown-item" href="#">Ru</a></li>
+                </ul>
+              </li>
+            </ul>
+            <ul class="navbar-nav justify-content-end pe-3">
+              <li class="nav-item">
+                <a class="nav-link" href="https://wa.me/529851090354?text=This%20is%20a%20test%20message"
+                  target="_blank">
+                  <i class="fab fa-whatsapp pe-1" alt="WhatsApp"></i><span>(+52) 985-100-41-13</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="follow z-2">
+      Follow Us
+    </div>
+
+    <div class="social z-2">
+      <div class="btn-group" role="group" aria-label="Vertical button group">
+        <a class="btn btn-primary rounded-0" href="https://www.facebook.com/" target="_blank"><i
+            class="fab fa-facebook-f"></i></a>
+        <a class="btn btn-dark" href="https://twitter.com/quintamarciala" target="_blank"><i
+            class="fab fa-x-twitter"></i></a>
+        <a class="btn btn-danger" href="https://www.instagram.com/quintamarciala/" target="_blank"><i
+            class="fab fa-instagram"></i></a>
+        <button type="button" id="menu-social" class="btn btn-secondary"><i id="icon"
+            class="fas fa-arrow-circle-right"></i></button>
+      </div>
+    </div>
+
+    <section>
+      <div id="carouselId" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-inner" role="listbox">
+          <div class="carousel-item active" data-bs-interval="10000">
+            <div class="slide1"></div>
+            <div class="carousel-caption">
+              <img src="static/img/logo-1.png" class="opacity-50 d-none d-md-block ms-auto me-auto"
+                height="400px" width="auto" alt="">
+              <img src="static/img/logo-1.png" class="opacity-50 d-md-none" height="200px"
+                width="auto" alt="">
+            </div>
+          </div>
+          <div class="carousel-item" data-bs-interval="10000">
+            <div class="slide2"></div>
+            <div class="carousel-caption ">
+              <img src="static/img/logo-1.png" class="opacity-50 d-none d-md-block ms-auto me-auto"
+                height="400px" width="auto" alt="">
+              <img src="static/img/logo-1.png" class="opacity-50 d-md-none" height="200px"
+                width="auto" alt="">
+            </div>
+          </div>
+          <div class="carousel-item" data-bs-interval="10000">
+            <div class="slide3"></div>
+            <div class="carousel-caption">
+              <img src="static/img/logo-1.png" class="opacity-50 d-none d-md-block ms-auto me-auto"
+                height="400px" width="auto" alt="">
+              <img src="static/img/logo-1.png" class="opacity-50 d-md-none" height="200px"
+                width="auto" alt="">
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselId" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </section>
+
+
+    <div class="space"></div>
+
+
+    <section id="about">
+      <div class="container text-center text-light py-5" style="max-width: 600px;">
+        <h2 class="text-uppercase mb-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit</h2>
+        <p class="fw-light">Deserunt repellendus quaerat consequatur officiis ex, cupiditate ratione mollitia doloribus
+          rerum, nulla itaque nemo maiores voluptates! Dignissimos, cupiditate? Iusto incidunt perferendis adipisci!</p>
+      </div>
+      <div class="container col-lg-6 py-5"> <!-- style="max-width: 600px;" -->
+        <div class="row g-0 text-center">
+          <div class="dining">
+            <div class="dining-img">
+              <div class="first ms-auto me-auto">
+                <img src="static/img/about-1.jpg" alt="dining image">
+              </div>
+              <div class="midle">
+                <img src="static/img/about-2.jpg" alt="dining image">
+              </div>
+              <div class="last">
+                <img src="static/img/about-3.jpg" alt="dining image">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pt-5 mt-5">
+        <div class="p-5 text-center bg-custom-1">
+          <div class="container py-5 text-light">
+            <h1 class="">Lorem ipsum elit </h1>
+            <p class="col-lg-8 mx-auto lead">
+              Deserunt repellendus quaerat consequatur officiis ex, cupiditate ratione mollitia doloribus
+          rerum, nulla itaque nemo maiores voluptates! Dignissimos, cupiditate? Iusto incidunt perferendis adipisci! 
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="space"></div>
+
+
+    <section id="rooms" class="">
+      <div class="container text-center text-light py-5" style="max-width: 600px;">
+        <h2 class="text-uppercase mb-3">Nuestras habitaciones</h2>
+        <p class="fw-light">Deserunt repellendus quaerat consequatur officiis ex, cupiditate ratione mollitia doloribus
+          rerum, nulla itaque nemo maiores voluptates! Dignissimos, cupiditate? Iusto incidunt perferendis adipisci!</p>
+      </div>
+      <div class="container" style="max-width: 800px;">
+        <div id="carouselId2" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner" role="listbox">
+            <div class="carousel-item active">
+              <div class="row g-2">
+                <div class="col-md-8">
+                  <img src="static/img/room-1.jpg" class="w-100 d-block rounded-2"
+                    alt="First slide" />
+                </div>
+                <div class="col-md-4">
+                  <div class="bg-secondary h-100 p-2 rounded-2 ">
+                    <h2 class="fw-bold">Habitaci&oacute;n individual</h2>
+                    <p class="small text-light">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde explicabo
+                      amet reiciendis possimus,
+                      facere eveniet delectus vitae doloremque molestias aperiam quis.</p>
+                    <span>Desde</span>
+                    <h2>$800.00</h2>
+                    <div class="smaller lh-1 mb-2">
+                      <span>* Lorem ipsum dolor, sit amet consectetur adipisicing elit.</span><br>
+                      <span>** Lorem ipsum dolor, sit amet consectetur adipisicing elit.</span>
+                    </div>
+                    <div>
+                      <a name="" id="" class="btn btn-outline-dark btn-sm rounded-5" href="#" role="button">Ver más</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item ">
+              <div class="row g-2">
+                <div class="col-md-8">
+                  <img src="static/img/room-2.jpg" class="w-100 d-block rounded-2"
+                    alt="Second slide" />
+                </div>
+                <div class="col-md-4">
+                  <div class="bg-secondary h-100 p-2 rounded-2 text-light">
+                    <h2 class="fw-bold">Habitaci&oacute;n doble</h2>
+                    <p class="small">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde explicabo amet
+                      reiciendis possimus,
+                      facere eveniet delectus vitae doloremque molestias aperiam quis.</p>
+                    <span>Desde</span>
+                    <h2>$800.00</h2>
+                    <div class="smaller lh-1 mb-2">
+                      <span>* Lorem ipsum dolor, sit amet consectetur adipisicing elit.</span><br>
+                      <span>** Lorem ipsum dolor, sit amet consectetur adipisicing elit.</span>
+                    </div>
+                    <div>
+                      <a name="" id="" class="btn btn-outline-dark btn-sm rounded-5" href="#" role="button">Ver más</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="row g-2">
+                <div class="col-md-8">
+                  <img src="static/img/room-3.jpg" class="w-100 d-block rounded-2"
+                    alt="Third slide" />
+                </div>
+                <div class="col-md-4">
+                  <div class="bg-secondary h-100 p-2 rounded-2">
+                    <h2 class="fw-bold">Habitaci&oacute;n matrimonial</h2>
+                    <p class="small text-light">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde explicabo
+                      amet reiciendis possimus,
+                      facere eveniet delectus vitae doloremque molestias aperiam quis.</p>
+                    <span>Desde</span>
+                    <h2>$800.00</h2>
+                    <div class="smaller lh-1 mb-2">
+                      <span>* Lorem ipsum dolor, sit amet consectetur adipisicing elit.</span><br>
+                      <span>** Lorem ipsum dolor, sit amet consectetur adipisicing elit.</span>
+                    </div>
+                    <div>
+                      <a name="" id="" class="btn btn-outline-dark btn-sm rounded-5" href="#" role="button">Ver más</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="container d-flex align-items-center  py-5">
+            <button class="carousel-control-prev carousel-control-left position-relative" type="button"
+              data-bs-target="#carouselId2" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="">Previous</span>
+            </button>
+            <button class="carousel-control-next carousel-control-right position-relative" type="button"
+              data-bs-target="#carouselId2" data-bs-slide="next">
+              <span class="">Next</span>
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="polices" class="bg-dark bg-gradient">
+      <div class="container-md px-4 py-5  rounded-2 text-white">
+        <div class="row row-cols-1 row-cols-md-2 align-items-md-center g-5 py-5 text-white">
+          <div class="col-lg-4 d-flex flex-column align-items-start gap-2">
+            <h2 class="fw-bold ">Contamos con servicios de calidad</h2>
+            <div class="p-2">
+              <div class="d-flex">
+                <i class="fas fa-parking"></i>
+                <div class="ps-2 col-10">Parking gratis</div>
+              </div>
+              <div class="d-flex">
+                <i class="fas fa-swimming-pool"></i>
+                <div class="ps-2 col-10">Piscina</div>
+              </div>
+              <div class="d-flex">
+                <i class="fas fa-wifi"></i>
+                <div class="ps-2 col-11">Zona wifi</div>
+              </div>
+              <div class="d-flex">
+                <i class="fas fa-taxi"></i>
+                <div class="ps-2 col-11">Transporte</div>
+              </div>
+              <div class="d-flex">
+                <i class="fas fa-concierge-bell"></i>
+                <div class="ps-2 col-11">Servicios de recepción</div>
+              </div>
+              <div class="d-flex">
+                <i class="fas fa-bicycle"></i>
+                <div class="ps-2 col-10">Renta de bicicletas</div>
+              </div>
+              <div class="d-flex">
+                <i class="fas fa-utensils"></i>
+                <div class="ps-2 col-11">Comida y bebida</div>
+              </div>
+              <div class="d-flex">
+                <i class="fas fa-trash"></i>
+                <div class="ps-2 col-11">Servicio de limpieza</div>
+              </div>
+              <div class="d-flex">
+                <i class="fas fa-paw"></i>
+                <div class="ps-2 col-11">No mascotas</div>
+              </div>
+            </div>
+            <a href="#" class="btn btn-outline-secondary btn-sm rounded-5">Ver condiciones</a>
+          </div>
+
+          <div class="col-lg-8">
+            <div class="g-4">
+              <div class="text-center text-lg-start">
+                <h2 class="fw-bold text-uppercase">Nuestras políticas</h2>
+                <div class="bg-secondary h-100 p-2 rounded-2">
+                  <div class="accordion accordion-flush" id="accordionExample">
+                    <div class="accordion-item border-0 bg-secondary">
+                      <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button bg-secondary text-white shadow-none w-auto" type="button"
+                          data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true"
+                          aria-controls="collapseOne">
+                          <span class="order-1">&nbsp;Cancelaciones</span>
+                        </button>
+                      </h2>
+                      <div id="collapseOne" class="accordion-collapse collapse show text-white"
+                        aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                        <div class="accordion-body text-start">
+                          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos omnis debitis et blanditiis!
+                          Adipisci dolore hic rem quos id asperiores, inventore excepturi ab quidem dolorem iste saepe
+                          ducimus mollitia facere!
+                        </div>
+                        <div class="px-4 text-end">
+                          <a name="" id="" class="btn btn-outline-dark btn-sm rounded-5" href="#" role="button">Leer
+                            más</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="accordion-item border-0 bg-secondary">
+                      <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button bg-secondary text-white shadow-none w-auto collapsed"
+                          type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
+                          aria-controls="collapseTwo">
+                          <span class="order-1">&nbsp;Check-in/check-out</span>
+                        </button>
+                      </h2>
+                      <div id="collapseTwo" class="accordion-collapse collapse text-white" aria-labelledby="headingTwo"
+                        data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos omnis debitis et blanditiis!
+                          Adipisci dolore hic rem quos id asperiores, inventore excepturi ab quidem dolorem iste saepe
+                          ducimus mollitia facere!
+                        </div>
+                        <div class="px-4 text-end">
+                          <a name="" id="" class="btn btn-outline-dark btn-sm rounded-5" href="#" role="button">Leer
+                            más</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="accordion-item border-0 bg-secondary">
+                      <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button bg-secondary text-white shadow-none w-auto collapsed"
+                          type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false"
+                          aria-controls="collapseThree">
+                          <span class="order-1">&nbsp;Payment</span>
+                        </button>
+                      </h2>
+                      <div id="collapseThree" class="accordion-collapse collapse text-white"
+                        aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos omnis debitis et blanditiis!
+                          Adipisci dolore hic rem quos id asperiores, inventore excepturi ab quidem dolorem iste saepe
+                          ducimus mollitia facere!
+                        </div>
+                        <div class="px-4 text-end">
+                          <a name="" id="" class="btn btn-outline-dark btn-sm rounded-5" href="#" role="button">Leer
+                            más</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="accordion-item border-0 bg-secondary">
+                      <h2 class="accordion-header" id="headingFour">
+                        <button class="accordion-button bg-secondary text-white shadow-none w-auto collapsed"
+                          type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false"
+                          aria-controls="collapseFour">
+                          <span class="order-1">&nbsp;Parking</span>
+                        </button>
+                      </h2>
+                      <div id="collapseFour" class="accordion-collapse collapse text-white"
+                        aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos omnis debitis et blanditiis!
+                          Adipisci dolore hic rem quos id asperiores, inventore excepturi ab quidem dolorem iste saepe
+                          ducimus mollitia facere!
+                        </div>
+                        <div class="px-4 text-end">
+                          <a name="" id="" class="btn btn-outline-dark btn-sm rounded-5" href="#" role="button">Leer
+                            más</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <div class="space"></div>
+
+
+    <section id="tourism" class="">
+      <div class="container text-center text-light py-5" style="max-width: 600px;">
+        <h2 class="text-uppercase mb-3">Explora, visita los alrededores de Valladolid. </h2>
+        <p class="fw-light">Deserunt repellendus quaerat consequatur officiis ex, cupiditate ratione mollitia doloribus
+          rerum, nulla itaque nemo maiores voluptates! Dignissimos, cupiditate? Iusto incidunt perferendis adipisci!</p>
+      </div>
+      <div class="album py-5">
+        <div class="container" style="max-width: 900px;">
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-5">
+            <div class="col">
+              <div class="card shadow-sm border-0 bg-transparent">
+                <img class="rounded-top-2" src="static/img/calzada.jpg" alt="">
+                <div class="card-body">
+                  <div class="d-flex justify-content-center">
+                    <h5 class="text-white">Calzada</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card shadow-sm border-0 bg-transparent">
+                <img class="rounded-top-2" src="static/img/chichen.jpg" alt="">
+                <div class="card-body">
+                  <div class="d-flex justify-content-center">
+                    <h5 class="text-white">Chich&eacute;n</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card shadow-sm border-0 bg-transparent">
+                <img class="rounded-top-2" src="static/img/samula.jpg" alt="">
+                <div class="card-body">
+                  <div class="d-flex justify-content-center">
+                    <h5 class="text-white">Samul&aacute;</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container text-center">
+        <a name="" id="" class="btn btn-sm btn-outline-secondary rounded-5" href="#" role="button">Explorar todos</a>
+      </div>
+    </section>
+
+
+    <div class="space"></div>
+
+
+    <section id="gallery" class="bg-dark bg-gradient">
+      <div class="container text-center text-light py-5" style="max-width: 600px;">
+        <h2 class="text-uppercase mb-3">Galer&iacute;a</h2>
+      </div>
+      <div class="container">
+        <div class="gallery">
+          <img class="masonry" src="static/img/gallery-1.jpg" alt="">
+          <img class="masonry" src="static/img/gallery-2.jpg" alt="">
+          <img class="masonry" src="static/img/loby-1280x720.jpg" alt="">
+          <img class="masonry" src="static/img/gallery-4.jpg" alt="">
+          <img class="masonry" src="static/img/patio-1280x720.jpg" alt="">
+          <img class="masonry" src="static/img/fachada.jpg" alt="">
+          <img class="masonry" src="static/img/gallery-7.jpg" alt="">
+          <img class="masonry" src="static/img/gallery-8.jpg" alt="">
+          <img class="masonry" src="static/img/gallery-9.jpg" alt="">
+          <img class="masonry" src="static/img/gallery-10.jpg" alt="">
+        </div>
+      </div>
+      <div class="container text-center text-light py-5">
+        <a name="" id="" class="btn btn-sm btn-outline-secondary rounded-5" href="#" role="button">Ver galería
+          completa</a>
+      </div>
+    </section>
+
+
+    <div class="space"></div>
+
+
+    <section id="extras">
+      <div class="container text-center text-light pt-5" style="max-width: 600px;">
+        <h2 class="text-uppercase mb-3">Disfruta tu estancia con nosotros</h2>
+      </div>
+      <div class="pt-5 mt-5">
+        <div class="p-5 text-center bg-extras">
+          <div class="container py-5 text-light">
+            <img src="static/img/logo-2.png" class="opacity-50 ms-auto me-auto"
+              height="200px" width="auto" alt=""> <!-- d-none d-md-block -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="map" class="bg-dark bg-gradient text-light">
+      <div class="container col-xl-10 col-xxl-8 px-4 p-5">
+        <div class="row align-items-center g-lg-5 py-5">
+          <div class="col-lg-6"> <!-- text-center text-lg-start -->
+            <h1 class="display-4 fw-bold lh-1 mb-3">Contáctanos</h1>
+            <div>
+              <div class="d-flex">
+                <i class="fas fa-map-marker-alt pt-2"></i>
+                <h3 class="ps-2">Address</h3>
+              </div>
+              <p>Calle 39 #239 x 54 Col. Bacalar. Valladolid, Yucatan
+                C.P. 97780</p>
+            </div>
+            <div>
+              <div class="d-flex">
+                <i class="fas fa-phone pt-2"></i>
+                <h3 class="ps-2">Phone</h3>
+              </div>
+              <p>(+52) 985-85-631-68</p>
+              <p>(+52) 985-100-41-13</p>
+            </div>
+            <div>
+              <div class="d-flex">
+                <i class="far fa-envelope pt-2"></i>
+                <h3 class="ps-2">Email</h3>
+              </div>
+              <p>hotelquintamarciala@gmail.com</p>
+            </div>
+          </div>
+          <div class="col-md-10 mx-auto col-lg-6 ">
+            <iframe class="rounded-2"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2639.2549443454272!2d-88.21144097338045!3d20.691162722672175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f510b28a8f82fd7%3A0x3ae565c7bd1c434f!2sCancun%20-%20Valladolid%2054%2C%20Bacalar%2C%2097784%20Valladolid%2C%20Yuc.!5e0!3m2!1ses-419!2smx!4v1688705185844!5m2!1ses-419!2smx"
+              width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+  <div class="container-fluid bg-dark">
+    <div class="container text-light">
+      <footer class="py-3">
+        <ul class="nav justify-content-center list-unstyled border-bottom pb-3 mb-3">
+          <li class="ms-3"><a class="text-light" href="#"><i class="fab fa-x-twitter"></i></a></li>
+          <li class="ms-3"><a class="text-light" href="#"><i class="fab fa-instagram"></i></a></li>
+          <li class="ms-3"><a class="text-light" href="#"><i class="fab fa-facebook-f"></i></a></li>
+        </ul>
+        <p class="text-center text-light">&copy; 2023 Hotel, Inc</p>
+      </footer>
+    </div>
+  </div>
+
+
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+    integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+    crossorigin="anonymous"></script>
+
+  <!--  -->
+  <script>
+    let customnav = document.querySelector(".custom-nav");
+
+    window.addEventListener('scroll', () => {
+      let winTop = window.scrollY;
+
+      if (winTop <= window.innerHeight) {
+          customnav.classList.remove('show');
+      } else {
+          customnav.classList.add('show')
+      }
+    })
+
+    /////////////////////////////////////////////////////
+
+    let social = document.querySelector('.social');
+    let menubtn = document.querySelector('#menu-social');
+    let icon = document.querySelector('#icon');
+
+    menubtn.addEventListener('click', () => {
+      icon.classList.toggle('fa-times');
+      social.classList.toggle('active');
+    })
+  </script>
+
+</body>
+
+</html>
